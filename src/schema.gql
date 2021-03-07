@@ -1,0 +1,25 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: Int
+  idNumber: String
+  username: String
+  firstName: String
+  lastName: String
+  previousLastName: String
+  birthYear: Int
+  gender: String
+  password: String
+}
+
+type Query {
+  user(id: Int!): User!
+  users_all: [User!]!
+}
+
+type Mutation {
+  register(gender: String!, previousLastName: String!, lastName: String!, firstName: String!, password: String!, username: String!): User!
+  register2(username: String!, password: String!, firstName: String!, lastName: String!, previousLastName: String!, birthYear: Float!, gender: String!, idNumber: String!): User!
+}
