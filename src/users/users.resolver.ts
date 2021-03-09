@@ -41,6 +41,11 @@ export class UsersResolver {
     return this.usersService.findAll();
   }
 
+  @Query(returns => User)
+  async isEmail(@Args('email') email: string) {
+    return this.usersService.isEmail(email);
+  }
+
   @Mutation(returns => User)
   async register(
     @Args('username') username: string,

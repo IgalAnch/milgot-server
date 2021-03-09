@@ -51,6 +51,16 @@ export class UsersService {
     return user;
   }
 
+  /**check user */
+  async isEmail(email: string): Promise<User> {
+    const user = await this.userRepository.findOne({ email: email });
+    if (!user) {
+      const errors = { User: ' not found!' };
+      throw new HttpException({ errors }, 401);
+    }
+    return user;
+  }
+
   async register(
     username,
     password,

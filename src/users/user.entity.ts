@@ -22,6 +22,10 @@ export class User {
 
   @Field({ nullable: true })
   @Column()
+  email: string;
+
+  @Field({ nullable: true })
+  @Column()
   idNumber: string;
 
   @Field({ nullable: true })
