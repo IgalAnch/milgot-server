@@ -59,7 +59,7 @@ export class User {
   @Field(type => String, { nullable: true })
   @Column()
   gender: string;
-  /////////////////////////////////
+  ///////////////////////////////// asdasd
 
   @Field(type => String, { nullable: true })
   @Column()
