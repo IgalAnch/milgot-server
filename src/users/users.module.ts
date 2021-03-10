@@ -8,9 +8,14 @@ import { User } from './user.entity';
 
 import { AuthModule } from '../auth/auth.module';
 import { AuthService } from '../auth/auth.service';
+import { DocumentTypeModule } from './document-type/document-type.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User]), forwardRef(() => AuthModule)],
+  imports: [
+    TypeOrmModule.forFeature([User]),
+    forwardRef(() => AuthModule),
+    forwardRef(() => DocumentTypeModule),
+  ],
   providers: [UsersService, UsersResolver],
   exports: [UsersService],
 

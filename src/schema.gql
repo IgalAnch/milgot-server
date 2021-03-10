@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type DocumentType {
+  id: Int
+  text: String
+  value: String
+}
+
 type User {
   id: Int
   email: String
@@ -32,12 +38,14 @@ type User {
   student_occupation: String
   student_pay: String
   password: String
+  documentTypes: [DocumentType!]
 }
 
 type Query {
   user(id: Int!): User!
   users_all: [User!]!
   isEmail(email: String!): User!
+  getTypesOfDocuments(id: Float!): User!
 }
 
 type Mutation {

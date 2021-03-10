@@ -12,6 +12,7 @@ import {
 } from 'typeorm';
 import { Field, Int, ObjectType, Directive } from '@nestjs/graphql';
 import * as bcrypt from 'bcrypt';
+import { DocumentType } from './document-type/document-type.entity';
 
 @ObjectType()
 @Entity('user')
@@ -152,4 +153,11 @@ export class User {
   async hashPassword() {
     this.password = await bcrypt.hash(this.password, 12);
   }
+
+  @Field(() => [DocumentType], { nullable: true })
+  @OneToMany(
+    () => DocumentType,
+    documentType => documentType.user,
+  )
+  documentTypes: DocumentType[];
 }

@@ -10,10 +10,13 @@ import { HttpStatus } from '@nestjs/common';
 
 import * as bcrypt from 'bcrypt'; //FIND USE FOR THIS OR?
 import { AuthService } from '../auth/auth.service';
+import { DocumentTypeService } from './document-type/document-type.service';
 
 @Injectable()
 export class UsersService {
   constructor(
+    @Inject(forwardRef(() => DocumentTypeService))
+    public documentTypeService: DocumentTypeService,
     @InjectRepository(User) //experimental repository
     private readonly userRepository: Repository<User>,
     @Inject(forwardRef(() => AuthService)) public authService: AuthService,
@@ -61,6 +64,11 @@ export class UsersService {
     return user;
   }
 
+  async getTypesOfDocuments(id: number) {
+    await this.documentTypeService.addProductType();
+    return await this.userRepository.findOne(id);
+  }
+
   async register(
     username,
     password,
@@ -106,4 +114,8 @@ export class UsersService {
     let user = await this.userRepository.save(obj);
     return user; // NOT null anymore
   }
+
+  ////
+
+  findAllProductTypes(id) {}
 }

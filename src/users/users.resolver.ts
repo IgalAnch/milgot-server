@@ -46,6 +46,11 @@ export class UsersResolver {
     return this.usersService.isEmail(email);
   }
 
+  @Query(returns => User)
+  async getTypesOfDocuments(@Args('id') id: number) {
+    return this.usersService.getTypesOfDocuments(id);
+  }
+
   @Mutation(returns => User)
   async register(
     @Args('username') username: string,
@@ -108,4 +113,9 @@ export class UsersResolver {
   //     user.firstName = access_token;
   //     return user;
   //   }
+
+  @ResolveField()
+  async documentTypes(@Parent() user: User) {
+    return this.usersService.findAllProductTypes(user.id);
+  }
 }

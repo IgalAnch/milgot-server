@@ -2,6 +2,8 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { UserRoles } from './user-roles/user-roles.entity';
 import { UserPremissions } from './user-premissions/user-premissions.entity';
+import { DocumentType } from './users/document-type/document-type.entity';
+
 //Entities
 
 //================== there are CHANGES IN THIS FILE with some JS FUNAMENTALS make sure to REMOVE LATER
@@ -13,7 +15,7 @@ export const TYPEORM_CONFIG: TypeOrmModuleOptions = {
   username: 'root',
   password: '',
   database: 'milgot_db',
-  entities: [User, UserRoles, UserPremissions],
+  entities: [User, UserRoles, UserPremissions, DocumentType],
   synchronize: true,
   //name:'prolift2'
   /* ^^^ if emitted name is "default". can make multiple database 
