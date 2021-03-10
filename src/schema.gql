@@ -12,6 +12,25 @@ type User {
   previousLastName: String
   birthYear: Int
   gender: String
+  student_residency: String
+  rent_status: String
+  kids: String
+  below_18: String
+  over_18: String
+  mother_fullname: String
+  mother_birthdate: String
+  mother_status: String
+  mother_occuptation: String
+  mother_medical_handicap: String
+  mother_in_contact: String
+  father_fullname: String
+  father_birthdate: String
+  father_status: String
+  father_occuptation: String
+  father_medical_handicap: String
+  father_in_contact: String
+  student_occupation: String
+  student_pay: String
   password: String
 }
 

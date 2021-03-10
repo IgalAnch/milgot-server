@@ -59,6 +59,90 @@ export class User {
   @Field(type => String, { nullable: true })
   @Column()
   gender: string;
+  /////////////////////////////////
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  student_residency: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  rent_status: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  kids: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  below_18: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  over_18: string;
+
+  ///// mother ////////
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  mother_fullname: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  mother_birthdate: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  mother_status: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  mother_occuptation: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  mother_medical_handicap: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  mother_in_contact: string;
+
+  //// father ////////
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  father_fullname: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  father_birthdate: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  father_status: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  father_occuptation: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  father_medical_handicap: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  father_in_contact: string;
+
+  //////////////////PRATIM NOSAFIM/////////
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  student_occupation: string;
+
+  @Field(type => String, { nullable: true })
+  @Column()
+  student_pay: string;
+  /////////////////////////////////
 
   @Field({ nullable: true })
   @Column()
