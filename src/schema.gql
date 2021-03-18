@@ -46,6 +46,7 @@ type Query {
   users_all: [User!]!
   isEmail(email: String!): User!
   getTypesOfDocuments(id: Float!): User!
+  verifyToken: Boolean!
 }
 
 type Mutation {

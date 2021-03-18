@@ -114,6 +114,12 @@ export class UsersResolver {
   //     return user;
   //   }
 
+  @UseGuards(JwtAuthGuard)
+  @Query(returns => Boolean)
+  async verifyToken() {
+    return true;
+  }
+
   @ResolveField()
   async documentTypes(@Parent() user: User) {
     return this.usersService.findAllProductTypes(user.id);
