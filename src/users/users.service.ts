@@ -11,6 +11,7 @@ import { HttpStatus } from '@nestjs/common';
 import * as bcrypt from 'bcrypt'; //FIND USE FOR THIS OR?
 import { AuthService } from '../auth/auth.service';
 import { DocumentTypeService } from './document-type/document-type.service';
+import { ValuesOfCorrectTypeRule } from 'graphql';
 
 @Injectable()
 export class UsersService {
@@ -39,6 +40,15 @@ export class UsersService {
     return all;
   }
 
+  getRandomInt(max) {
+    let n = Math.floor(Math.random() * Math.floor(max));
+    // let c="";
+    // if (n<100){
+    //   c="0"+ n.valueOf();
+    // }
+    return n;
+  }
+
   async findOne(username): Promise<User> {
     let one = await this.userRepository.findOne({ username: username });
     return one;
@@ -61,8 +71,14 @@ export class UsersService {
       const errors = { User: ' not found!' };
       throw new HttpException({ errors }, 401);
     }
+    //
+    let n = this.getRandomInt(999);
+    user.email = n.toString();
+    //
     return user;
   }
+
+  async login() {}
 
   async getTypesOfDocuments(id: number) {
     await this.documentTypeService.addProductType();
