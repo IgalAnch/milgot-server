@@ -16,13 +16,13 @@ export class AuthService {
     const user = await this.usersService.findOne(username);
     console.log(user);
     let comparison;
-    console.log(pass);
+        console.log(pass);
     return new Promise(function(resolve, reject) {
       bcrypt.compare(pass, user.password, (err, result) => {
         // result == true
         comparison = result;
         console.log('bcrypt.compare=>() ');
-        console.log(comparison);
+        console.log( comparison );
         console.log('uhh ok');
         console.log('auth.service comparison= ' + result);
         console.log(!!user);

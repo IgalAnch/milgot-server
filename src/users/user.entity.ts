@@ -149,6 +149,10 @@ export class User {
   @Column()
   password: string;
 
+  @Field({nullable:true})
+  @Column()
+  is_admin: boolean;
+
   @BeforeInsert()
   async hashPassword() {
     this.password = await bcrypt.hash(this.password, 12);
