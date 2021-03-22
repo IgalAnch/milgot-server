@@ -68,4 +68,11 @@ export class AuthService {
       access_token: this.jwtService.sign(payload),
     };
   }
+
+  async tempkey(user: any) {
+    const payload = { username: user.username, sub: user.id };
+    return {
+      access_token: this.jwtService.sign(payload),
+    };
+  }
 }
