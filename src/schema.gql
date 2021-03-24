@@ -47,7 +47,19 @@ type Query {
   users_all: [User!]!
   isEmail(email: String!): User!
   getTypesOfDocuments(id: Float!): User!
+  testObject2(user: UserInput!): User!
   verifyToken: Boolean!
+}
+
+input UserInput {
+  id: Int
+  idNumber: String
+  username: String
+  firstName: String
+  lastName: String
+  previousLastName: String
+  birthYear: Int
+  gender: String
 }
 
 type Mutation {

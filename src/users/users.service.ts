@@ -12,6 +12,7 @@ import * as bcrypt from 'bcrypt'; //FIND USE FOR THIS OR?
 import { AuthService } from '../auth/auth.service';
 import { DocumentTypeService } from './document-type/document-type.service';
 import { ValuesOfCorrectTypeRule } from 'graphql';
+import { identity } from 'rxjs';
 
 @Injectable()
 export class UsersService {
@@ -131,6 +132,44 @@ export class UsersService {
     return user; // NOT null anymore
   }
 
+  ///TEST
+  async testObject(user) {
+    let {
+      id,
+      idNumber,
+      firstName,
+      lastName,
+      gender,
+      birthYear,
+      previousLastName,
+      username,
+    } = user;
+    let someUser = {
+      id: id,
+      idNumber: user.idNumber,
+      firstName: user.firstName,
+      gender: user.gender,
+      birthYear: user.birthYear,
+      lastName: user.lastName,
+      previousLastName: user.previousLastName,
+      username: user.username,
+    };
+    console.log(someUser);
+
+    let findUser = await this.userRepository.find({
+      where: someUser,
+    });
+    console.log('Find User');
+    console.log(findUser);
+
+    // let findUserTest2 = await this.userRepository.findOne(9);
+    // console.log('Find User2');
+    // console.log(findUserTest2);
+    // return await this.userRepository.find({
+    //   where: someUser,
+    // });
+    return findUser[0];
+  }
   ////
 
   findAllProductTypes(id) {}

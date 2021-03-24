@@ -10,7 +10,7 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { Field, Int, ObjectType, Directive } from '@nestjs/graphql';
+import { Field, Int, ObjectType, Directive, InputType } from '@nestjs/graphql';
 import * as bcrypt from 'bcrypt';
 import { DocumentType } from './document-type/document-type.entity';
 
@@ -149,7 +149,7 @@ export class User {
   @Column()
   password: string;
 
-  @Field({nullable:true})
+  @Field({ nullable: true })
   @Column()
   is_admin: boolean;
 

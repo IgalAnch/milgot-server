@@ -22,6 +22,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { AuthService } from '../auth/auth.service';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { AppController } from '../app.controller';
+import { UserInput } from './user.input';
 
 const pubSub = new PubSub();
 
@@ -49,6 +50,12 @@ export class UsersResolver {
   @Query(returns => User)
   async getTypesOfDocuments(@Args('id') id: number) {
     return this.usersService.getTypesOfDocuments(id);
+  }
+
+  //????????????????????????????????????????
+  @Query(returns => User)
+  async testObject2(@Args('user') user: UserInput) {
+    return this.usersService.testObject(user);
   }
 
   @Mutation(returns => User)
