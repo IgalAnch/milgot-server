@@ -16,6 +16,7 @@ import { DocumentType } from './document-type/document-type.entity';
 
 @InputType()
 export class UserInput {
+  //{id,idNumber,username,firstName,lastName,previousLastName,birthYear,gender}
   @Field(type => Int, { nullable: true })
   id: number;
 

@@ -13,13 +13,8 @@ export class LocalAuthGuard extends AuthGuard('local') {
   }
 }
 
-//console.log('========== 1 =========');
-//console.log(context);
-// console.log('========== 2 =========');
+// console.log(context);
 // console.log(ctx.getContext().req);
-//console.log('========== 3 =========');
-//console.log(ctx);
-// console.log('========== 4 =========');
+// console.log(ctx);
 // console.log(ctx.getContext().req.body.variables);
-// console.log('========== 5 =========');
 // console.log(ctx.getContext().req);

@@ -13,6 +13,7 @@ import { AuthService } from '../auth/auth.service';
 import { DocumentTypeService } from './document-type/document-type.service';
 import { ValuesOfCorrectTypeRule } from 'graphql';
 import { identity } from 'rxjs';
+import { UserInput } from './user.input';
 
 @Injectable()
 export class UsersService {
@@ -43,10 +44,6 @@ export class UsersService {
 
   getRandomInt(max) {
     let n = Math.floor(Math.random() * Math.floor(max));
-    // let c="";
-    // if (n<100){
-    //   c="0"+ n.valueOf();
-    // }
     return n;
   }
 
@@ -154,23 +151,12 @@ export class UsersService {
       previousLastName: user.previousLastName,
       username: user.username,
     };
-    console.log(someUser);
-
-    let findUser = await this.userRepository.find({
+    let users = await this.userRepository.find({
       where: someUser,
     });
-    console.log('Find User');
-    console.log(findUser);
-
-    // let findUserTest2 = await this.userRepository.findOne(9);
-    // console.log('Find User2');
-    // console.log(findUserTest2);
-    // return await this.userRepository.find({
-    //   where: someUser,
-    // });
-    return findUser[0];
+    let firstUser = users[0];
+    return firstUser;
   }
-  ////
 
   findAllProductTypes(id) {}
 }
