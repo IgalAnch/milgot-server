@@ -15,6 +15,13 @@ import { ValuesOfCorrectTypeRule } from 'graphql';
 import { identity } from 'rxjs';
 import { UserInput } from './user.input';
 
+/*
+to-do:
+======
+*authenticate roles
+*1 table interface on admin
+*
+*/
 @Injectable()
 export class UsersService {
   constructor(
@@ -141,8 +148,9 @@ export class UsersService {
       previousLastName,
       username,
     } = user;
+
     let someUser = {
-      id: id,
+      id: user.id,
       idNumber: user.idNumber,
       firstName: user.firstName,
       gender: user.gender,

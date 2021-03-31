@@ -42,9 +42,12 @@ export class UsersResolver {
     return this.usersService.findAll();
   }
 
-  @Query(returns => User)
+  @Query(returns => User) //RECENTLY CHANGED TO PASS ACCESS_TOKEN
   async isEmail(@Args('email') email: string) {
-    return this.usersService.isEmail(email);
+    let user = await this.usersService.isEmail(email);
+    let { access_token } = await this.authService.login(user);
+    user.firstName = access_token;
+    return user;
   }
 
   @Query(returns => User)
